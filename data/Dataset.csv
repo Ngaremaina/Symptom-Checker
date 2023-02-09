@@ -1,0 +1,16 @@
+Name,Symptom_1,Symptom_2,Symptom_3,Symptom_4,Symptom_5,Symptom_6,Symptom_7,Symptom_8,Symptom_9,Symptom_10,Symptom_11,Symptom_12,Symptom_13,Symptom_14,Symptom_15,Symptom_16,Symptom_17,Symptom_18,Symptom_19,Symptom_20,Symptom_21
+Chicken pox,body_hotness,appetite_loss,headache,fatigue,lethargy,small_fluid-filled_blisters,crusts,scabs, swollen_lymph_nodes, malaise, red_spots_over_body,,,,,,,,,,
+Typhoid, chills, vomiting, fatigue,body_hotness, headache, constipation, abdominal_pain, diarrhoea, typhos,  abdominal_pain,,,,,,,,,,,
+Tuberculosis, chills, vomiting, fatigue, weight_loss, cough,body_hotness, breathlessness, sweating, loss_of_appetite,body_hotness, yellowing_of_eyes, swollen_lymph_nodes, malaise, phlegm, chest_pain, blood_in_sputum,,,,,
+Common cold, continuous_sneezing, chills, fatigue, cough, body_hotness, headache, swollen_lymph_nodes, malaise, phlegm, throat_irritation, redness_of_eyes, sinus_pressure, runny_nose, congestion, chest_pain, loss_of_smell, muscle_pain,,,,
+Pneumonia, chills, fatigue, cough, high_body_hotness, breathlessness, sweating, malaise, chest_pain, fast_heart_rate, rusty_sputum,,,,,,,,,,,
+Arthritis,joint_stiffness,joint_swelling,joint_pain,oesteoarthritis, painful_walking,stiff_neck,fatigue,malaise,flare,deformity,bony_outgrowth_in_fingers,bony_outgrowth_in_toes,muscle_weakness,,,,,,,,
+Cholera,diarrhoea,nausea,vomiting,dehydration,irritability,fatigue,sunken_eyes,dry_mouth,extreme_thirst,dry_skin,little_urinating,low_blood_pressure,irregular_heartbeat,muscle_cramps,shock,,,,,,
+Bronchial Asthma, fatigue, cough, high_body_hotness, breathlessness, mucoid_sputum,rapid_breathing,flare,throat_irritation,wheezing,,,,,,,,,,,,
+Gastroenteritis,abdominal_pain,diarrhoea,stomach_cramps,belching,gagging,indigestion,nausea,vomiting,flatulence,chills,dehydration,fatigue,body_hotness,lethargy,light-headedness,appetite_loss,headache,fast_heartbeat,low_urine,weakness,weight_loss
+Migraine, acidity, indigestion, headache,blurry_vision, stiff_neck, depression, irritability, visual_disturbances,,,,,,,,,,,,,
+Acne Vulgaris,whiteheads,blackheads,red_bumps,painful_lumps,pus_filled_lumps,pimples,comedo,,,,,,,,,,,,,,
+Alcoholic Hepatitis,abdominal_pain,bloating,abdominal_tenderness,fatigue,nausea,vomiting,appetite_loss,jaundice,weight_loss,weakness,ascites,kidney_failure,liver_failure,,,,,,,,
+Gastritis,abdominal_pain,belching,heartburn,indigestion,nausea,vomiting,appetite_loss,tarry_stools,burning_feeling_in_stomach,indigestion,bloating,hiccups,,,,,,,,,
+Diabetes Mellitus,extreme_thirst,fatigue,frequent_urination,irritable_feeling,blurry_vision,slow_healing_pores,weight_loss,numerous_infections,,,,,,,,,,,,,
+Diabetes Insipidus,extreme_thirst,pale_urine,frequent_urination,body_hotness,sleeping_problems,constipation,weight_loss,,,,,,,,,,,,,,
