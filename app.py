@@ -14,7 +14,6 @@ for index, symptom in enumerate(x):
 def getprecautionDict():
     global precautionDictionary
     with open('data/symptom_precaution.csv') as csv_file:
-
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
         for row in csv_reader:
@@ -63,7 +62,6 @@ def tree_to_code(tree, feature_names):
             precution_list=precautionDictionary[present_disease[0]]
             st.write("Take following measures : ")
             for  i,j in enumerate(precution_list):
-                print(i+1,")",j)
                 st.write(i+1,j)
 
     recurse(0, 1)
