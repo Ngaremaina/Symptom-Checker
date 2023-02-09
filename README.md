@@ -1,2 +1,2 @@
-# Synptom-Checker
+# Symptom-Checker
  
