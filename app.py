@@ -13,7 +13,7 @@ for index, symptom in enumerate(x):
 
 def getprecautionDict():
     global precautionDictionary
-    with open('data/symptom_precaution.csv') as csv_file:
+    with open('data/Precautions.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
         for row in csv_reader:
