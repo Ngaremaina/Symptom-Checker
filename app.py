@@ -59,6 +59,7 @@ def tree_to_code(tree, feature_names):
         else:
             present_disease = print_disease(tree_.value[node])
             st.write("You may have " , present_disease[0])
+
             precution_list=precautionDictionary[present_disease[0]]
             st.write("Take following measures : ")
             for  i,j in enumerate(precution_list):
@@ -66,7 +67,6 @@ def tree_to_code(tree, feature_names):
 
     recurse(0, 1)
 getprecautionDict()
-
 
 st.header('Virtual Health Assistant')
 st.write("Please reply Yes or No for the following symptoms")

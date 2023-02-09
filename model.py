@@ -18,10 +18,6 @@ testy    = le.transform(testy)
 
 clf1  = DecisionTreeClassifier()
 clf = clf1.fit(x_train,y_train)
-print(clf.score(x_train,y_train))
-print ("cross result========")
-
-print(clf.score(testx,testy))
 
 
 importances = clf.feature_importances_
