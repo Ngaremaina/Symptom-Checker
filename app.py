@@ -56,8 +56,10 @@ def tree_to_code(tree, feature_names):
                 st.write("No illness")
         else:
             present_disease = print_disease(tree_.value[node])
+            st.markdown('----')
             st.write("You may have " , present_disease[0])
 
+            st.markdown('----')
             precution_list=precautionDictionary[present_disease[0]]
             st.write("Take following measures : ")
             for  i,j in enumerate(precution_list):
@@ -66,7 +68,8 @@ def tree_to_code(tree, feature_names):
     recurse(0, 1)
 getprecautionDict()
 
-st.header('Virtual Health Assistant')
+st.header("Virtual Health Assistant")
+st.markdown('----')
 st.write("Please reply Yes or No for the following symptoms")
 
 with st.container():
@@ -74,7 +77,7 @@ with st.container():
     with col1: 
         st.write("")
         st.write("")
-        st.write('Are you experiencing a headache?')
+        st.write("Are you experiencing a headache?")
   
     with col2:        
         headache = st.radio("",('Yes', 'No'),horizontal=True, key="1")
@@ -187,7 +190,10 @@ with st.container():
         else:
             no=fatigue
 
+st.markdown('----')
+
 submitresponse=st.button("Validate")
 
 if submitresponse:
     tree_to_code(clf,cols)
+
