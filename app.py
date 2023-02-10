@@ -56,11 +56,13 @@ def tree_to_code(tree, feature_names):
                 st.write("No illness")
         else:
             present_disease = print_disease(tree_.value[node])
+            
             st.markdown('----')
             st.write("You may have " , present_disease[0])
 
             st.markdown('----')
             precution_list=precautionDictionary[present_disease[0]]
+            
             st.write("Take following measures : ")
             for  i,j in enumerate(precution_list):
                 st.write(i+1,j)
