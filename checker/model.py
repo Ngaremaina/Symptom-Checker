@@ -2,7 +2,7 @@ from sklearn import preprocessing
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 import numpy as np
-from train import testing, x,y, cols
+from checker.train import testing, x,y, cols
 
 
 # Encoding String values to integer constants 

@@ -1,8 +1,8 @@
 import streamlit as st
 import csv
 from sklearn.tree import _tree
-from train import x, cols
-from model import le, clf
+from checker.train import x, cols
+from checker.model import le, clf
 
 precautionDictionary=dict()
 
