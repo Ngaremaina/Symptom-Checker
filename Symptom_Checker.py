@@ -94,7 +94,7 @@ with st.container():
     with col1: 
         st.write("")
         st.write("")
-        st.write('Are you experiencing a cough?')
+        st.write('Are you experiencing any coughing?')
   
     with col2:
         cough= st.radio("",('Yes', 'No'),horizontal=True, key="2")
@@ -111,12 +111,12 @@ with st.container():
         st.write('Are you experiencing high fever?')
   
     with col2:
-        fever= st.radio("",('Yes', 'No'),horizontal=True, key="3")
+        body_hotness= st.radio("",('Yes', 'No'),horizontal=True, key="3")
 
-        if fever == 'Yes':
-            yes=fever
+        if body_hotness == 'Yes':
+            yes=body_hotness
         else:
-            no=fever
+            no=body_hotness
 with st.container():
     col1, col2=st.columns(2)
     with col1: 
@@ -137,15 +137,15 @@ with st.container():
     with col1: 
         st.write("")
         st.write("")
-        st.write('Are you experiencing appetite loss?')
+        st.write('Are you experiencing nausea?')
   
     with col2:
-        appetite= st.radio("",('Yes', 'No'),horizontal=True, key="5")
+        nausea= st.radio("",('Yes', 'No'),horizontal=True, key="5")
 
-        if appetite == 'Yes':
-            yes=appetite
+        if nausea == 'Yes':
+            yes=nausea
         else:
-            no=appetite
+            no=nausea
 
 with st.container():
     col1, col2=st.columns(2)
@@ -167,15 +167,15 @@ with st.container():
     with col1: 
         st.write("")
         st.write("")
-        st.write('Are you experiencing chest pains?')
+        st.write('Are you experiencing abdominal pains?')
   
     with col2:
-        chest= st.radio("",('Yes', 'No'),horizontal=True, key="7")
+        abdominal_pain = st.radio("",('Yes', 'No'),horizontal=True, key="7")
 
-        if chest == 'Yes':
-            yes=chest
+        if abdominal_pain == 'Yes':
+            yes=abdominal_pain
         else:
-            no=chest
+            no=abdominal_pain
 
 with st.container():
     col1, col2=st.columns(2)
@@ -185,12 +185,14 @@ with st.container():
         st.write('Are you experiencing fatigue?')
   
     with col2:
-        fatigue= st.radio("",('Yes', 'No'),horizontal=True, key ="8")
+        fatigue = st.radio("",('Yes', 'No'),horizontal=True, key ="8")
 
         if fatigue == 'Yes':
             yes=fatigue
         else:
             no=fatigue
+            
+
 
 st.markdown('----')
 
