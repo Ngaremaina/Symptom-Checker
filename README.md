@@ -17,7 +17,5 @@ To run this application:
 *Run this command to start the streamlit app: *streamlit run Symptom_Checker.py
 
 # Author #
-Owen Ngare
+Ngare Maina
 
-# License #
-Apache License
