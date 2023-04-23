@@ -4,10 +4,10 @@ The symptom checker is a program that predicts the illness that the patient may 
 ## Home Page ##
 The pictures as shown depict the outlook of the web app
 ## Form page ##
-![Form Page](./media/Formpage.png)
+![Form Page](./Formpage.png)
 
 ## Results page ##
-![Results Page](./media/Resultspage.png)
+![Results Page](./Resultspage.png)
 
 ## Getting started ##
 To run this application:
