@@ -14,7 +14,7 @@ To run this application:
 
 *Clone from here [Symptom Checker](https://github.com/Ngaremaina/Symptom-Checker)
 
-*Run this command to start the streamlit app: *streamlit run Symptom_Checker.py
+*Run this command to start the streamlit app: *streamlit run app.py
 
 # Author #
 Ngare Maina
