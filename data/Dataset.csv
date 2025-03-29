@@ -12,6 +12,8 @@ Compartment Syndrome,severe_pain_in_muscle_compartment,swelling,tightness,numbne
 Tendinitis,inflammation_of_tendons,pain_and_stiffness_during_movement,swelling_in_shoulders,swelling_in_elbows,swelling_in_knees,swelling_in_heels,,,,,,,,,
 Bursitis,inflammation_of_bursae,swelling,restricted_movement,joint_pain,joint_swelling,muscle_tenderness,,,,,,,,,,
 Chronic Fatigue Syndrome,muscle_fatigue,difficulty_concentrating,joint_pain,muscle_pain,extreme_exhaustion,,,,,,,,,,
-Pyomyocitis,fever,chills,muscle_pain,swelling,reddness,,,,,,,,,
+Pyomyocitis,fever,chills,muscle_pain,swelling,redness,,,,,,,,,
 Lactic Acidosis,muscle_pain,muscle_cramps,rapid_breathing,nausea,weakness,,,,,,,,,,,
 Lupus,butterfly_shaped_rash_on_face,red_bumps,sensitivity_to_sunlight,hair_loss,joint_pain,joint_stiffness,joint_swelling,fatigue,,,,,,,,,,
+Sjogren's Syndrome,dryness,fatigue,joint_pain,joint_stiffness,muscle_pain,muscle_weakness,difficulty_swallowing,difficulty_talking,difficulty_concentrating,taste_loss,tooth_decay
+Neuropathic Arthropathy,joint_pain,joint_swelling,joint_redness,joint_deformity,weight_fluctuation,loss_of_sensation,diabetes
