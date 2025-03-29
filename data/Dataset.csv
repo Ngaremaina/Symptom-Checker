@@ -15,6 +15,8 @@ Chronic Fatigue Syndrome,muscle_fatigue,difficulty_concentrating,joint_pain,musc
 Pyomyocitis,fever,chills,muscle_pain,swelling,redness,,,,,,,,,
 Lactic Acidosis,muscle_pain,muscle_cramps,rapid_breathing,nausea,weakness,,,,,,,,,,,
 Lupus,butterfly_shaped_rash_on_face,red_bumps,sensitivity_to_sunlight,hair_loss,joint_pain,joint_stiffness,joint_swelling,fatigue,,,,,,,,,,
+Ehlers-Danlos, loose joints, stretchy skin, fragile skin, skin bruises, chronic pain, fatigue, cognitive impairment, headache, gastrointestinal issues,,,,,,,,,
+Fibromyalgia, muscle_stiffness, fatigue, difficulty_sleeping, difficulty_concentrating, numbness_in_specific_compartment, IBS,,,,,,,,,
 Osteoporosis,back_pain,loss_of_height_over_time,stooped_posture,brittle_or_fragile_bones,weak_grip_strength,increased_frequency_of_fractures,,,,,
 Osteoarthritis,joint_pain,joint_stiffness,joint_tenderness,loss_of_flexibility,bone_spurs,joint_swelling,joints_pop_or_crackle_often,,,,,
 Rickets,delayed_growth_and_motor_skills,spine_pain,pelvis_pain,leg_pain,muscle_weakness,bowed_legs,thickened_wrists_and_ankles,breastbone_projection,,,,,
