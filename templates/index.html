@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Virtual Health Assistant</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 640px; margin: 2rem auto; padding: 0 1rem; color: #222; }
+    h1 { font-size: 1.8rem; }
+    hr { border: none; border-top: 1px solid #ddd; margin: 1.5rem 0; }
+    .question { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .6rem 0; }
+    .question label { margin-left: 1rem; }
+    button { background: #ff4b4b; color: #fff; border: none; border-radius: 6px; padding: .6rem 1.4rem; font-size: 1rem; cursor: pointer; }
+    button:hover { background: #e03e3e; }
+    .result { background: #f4f8ff; border-radius: 8px; padding: 1rem 1.25rem; }
+    .disclaimer { font-size: .85rem; color: #666; }
+  </style>
+</head>
+<body>
+  <h1>Virtual Health Assistant</h1>
+  <hr>
+  <p>Please reply Yes or No for the following symptoms</p>
+
+  <form method="post">
+    {% for symptom, question in questions %}
+    <div class="question">
+      <span>{{ question }}</span>
+      <span>
+        <label><input type="radio" name="{{ symptom }}" value="yes" {% if answers[symptom] %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="{{ symptom }}" value="no" {% if not answers[symptom] %}checked{% endif %}> No</label>
+      </span>
+    </div>
+    {% endfor %}
+    <hr>
+    <button type="submit">Validate</button>
+  </form>
+
+  {% if submitted %}
+  <hr>
+  <div class="result">
+    {% if disease %}
+      <p>You may have <strong>{{ disease }}</strong></p>
+      {% if precautions %}
+        <p>Take following measures:</p>
+        <ol>
+          {% for precaution in precautions %}<li>{{ precaution }}</li>{% endfor %}
+        </ol>
+      {% endif %}
+    {% else %}
+      <p>No illness</p>
+    {% endif %}
+  </div>
+  <p class="disclaimer">This tool is not a medical diagnosis. Consult a healthcare professional.</p>
+  {% endif %}
+</body>
+</html>

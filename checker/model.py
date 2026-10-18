@@ -16,7 +16,7 @@ testx    = testing[cols]
 testy    = testing['prognosis']  
 testy    = le.transform(testy)
 
-clf1  = DecisionTreeClassifier()
+clf1  = DecisionTreeClassifier(random_state=42)
 clf = clf1.fit(x_train,y_train)
 
 

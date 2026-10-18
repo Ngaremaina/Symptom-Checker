@@ -1,203 +1,70 @@
-import streamlit as st
 import csv
-from sklearn.tree import _tree
-from checker.train import x, cols
+import os
+
+import pandas as pd
+from flask import Flask, render_template, request
+
+from checker.train import cols, DATA_DIR
 from checker.model import le, clf
 
-precautionDictionary=dict()
+app = Flask(__name__)
 
-symptoms_dict = {}
+# Question shown to the user -> symptom column in the training data
+QUESTIONS = [
+    ("headache", "Are you experiencing a headache?"),
+    ("cough", "Are you experiencing any coughing?"),
+    ("body_hotness", "Are you experiencing high fever?"),
+    ("vomiting", "Are you experiencing vomiting?"),
+    ("nausea", "Are you experiencing nausea?"),
+    ("sweating", "Are you experiencing sweating?"),
+    ("abdominal_pain", "Are you experiencing abdominal pains?"),
+    ("fatigue", "Are you experiencing fatigue?"),
+]
 
-for index, symptom in enumerate(x):
-       symptoms_dict[symptom] = index
-
-def getprecautionDict():
-    global precautionDictionary
-    with open('data/Precautions.csv') as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=',')
-        for row in csv_reader:
-            _prec={row[0]:[row[1],row[2],row[3],row[4]]}
-            precautionDictionary.update(_prec)
-
-def print_disease(node): 
-    node = node[0]
-    val  = node.nonzero() 
-    disease = le.inverse_transform(val[0])
-    return disease
+# Some column names in the CSV carry stray spaces, so match on the stripped name
+column_for = {c.strip(): c for c in cols}
 
 
-def tree_to_code(tree, feature_names):
-    tree_ = tree.tree_
-    
-    feature_name = [
-        feature_names[i] if i != _tree.TREE_UNDEFINED else "undefined!"
-        for i in tree_.feature
-    ]
-
-    symptoms_present = []
-    def recurse(node, depth):
-        if tree_.feature[node] != _tree.TREE_UNDEFINED:
-            name = feature_name[node]
-            threshold = tree_.threshold[node]
-            try:
-                ans = 'yes'
-                
-                if ans == yes:
-                    val = 1
-                else:
-                    val = 0
-                
-                if  val <= threshold:
-                    recurse(tree_.children_left[node], depth + 1)
-                else:
-                    symptoms_present.append(name)
-                    recurse(tree_.children_right[node], depth + 1)
-            except:
-                st.write("No illness")
-        else:
-            present_disease = print_disease(tree_.value[node])
-            
-            st.markdown('----')
-            st.write("You may have " , present_disease[0])
-
-            st.markdown('----')
-            precution_list=precautionDictionary[present_disease[0]]
-            
-            st.write("Take following measures : ")
-            for  i,j in enumerate(precution_list):
-                st.write(i+1,j)
-
-    recurse(0, 1)
-getprecautionDict()
-
-st.header("Virtual Health Assistant")
-st.markdown('----')
-st.write("Please reply Yes or No for the following symptoms")
-
-with st.container():
-    col1, col2=st.columns(2)
-    with col1: 
-        st.write("")
-        st.write("")
-        st.write("Are you experiencing a headache?")
-  
-    with col2:        
-        headache = st.radio("",('Yes', 'No'),horizontal=True, key="1")
-
-        if headache == 'Yes':
-            yes=headache
-        else:
-            no=headache
-
-with st.container():
-    col1, col2=st.columns(2)
-    with col1: 
-        st.write("")
-        st.write("")
-        st.write('Are you experiencing any coughing?')
-  
-    with col2:
-        cough= st.radio("",('Yes', 'No'),horizontal=True, key="2")
-
-        if cough == 'Yes':
-            yes=cough
-        else:
-            no=cough
-with st.container():
-    col1, col2=st.columns(2)
-    with col1: 
-        st.write("")
-        st.write("")
-        st.write('Are you experiencing high fever?')
-  
-    with col2:
-        body_hotness= st.radio("",('Yes', 'No'),horizontal=True, key="3")
-
-        if body_hotness == 'Yes':
-            yes=body_hotness
-        else:
-            no=body_hotness
-with st.container():
-    col1, col2=st.columns(2)
-    with col1: 
-        st.write("")
-        st.write("")
-        st.write('Are you experiencing vomiting?')
-  
-    with col2:
-        vomiting= st.radio("",('Yes', 'No'),horizontal=True, key="4")
-
-        if vomiting == 'Yes':
-            yes=vomiting
-        else:
-            no=vomiting
-
-with st.container():
-    col1, col2=st.columns(2)
-    with col1: 
-        st.write("")
-        st.write("")
-        st.write('Are you experiencing nausea?')
-  
-    with col2:
-        nausea= st.radio("",('Yes', 'No'),horizontal=True, key="5")
-
-        if nausea == 'Yes':
-            yes=nausea
-        else:
-            no=nausea
-
-with st.container():
-    col1, col2=st.columns(2)
-    with col1: 
-        st.write("")
-        st.write("")
-        st.write('Are you experiencing sweating?')
-  
-    with col2:
-        sweating= st.radio("",('Yes', 'No'),horizontal=True, key="6")
-
-        if sweating == 'Yes':
-            yes=sweating
-        else:
-            no=sweating
-
-with st.container():
-    col1, col2=st.columns(2)
-    with col1: 
-        st.write("")
-        st.write("")
-        st.write('Are you experiencing abdominal pains?')
-  
-    with col2:
-        abdominal_pain = st.radio("",('Yes', 'No'),horizontal=True, key="7")
-
-        if abdominal_pain == 'Yes':
-            yes=abdominal_pain
-        else:
-            no=abdominal_pain
-
-with st.container():
-    col1, col2=st.columns(2)
-    with col1: 
-        st.write("")
-        st.write("")
-        st.write('Are you experiencing fatigue?')
-  
-    with col2:
-        fatigue = st.radio("",('Yes', 'No'),horizontal=True, key ="8")
-
-        if fatigue == 'Yes':
-            yes=fatigue
-        else:
-            no=fatigue
-            
+def get_precaution_dict():
+    precautions = {}
+    with open(os.path.join(DATA_DIR, 'Precautions.csv')) as csv_file:
+        for row in csv.reader(csv_file, delimiter=','):
+            precautions[row[0]] = [p for p in row[1:5] if p.strip()]
+    return precautions
 
 
-st.markdown('----')
+precaution_dictionary = get_precaution_dict()
 
-submitresponse=st.button("Validate")
 
-if submitresponse:
-    tree_to_code(clf,cols)
+def predict_disease(answers):
+    features = pd.DataFrame([[0] * len(cols)], columns=cols)
+    for symptom, present in answers.items():
+        if present:
+            features[column_for[symptom]] = 1
+    return le.inverse_transform(clf.predict(features))[0]
 
+
+@app.route("/", methods=["GET", "POST"])
+def index():
+    answers = {symptom: False for symptom, _ in QUESTIONS}
+    disease = None
+    precautions = []
+
+    if request.method == "POST":
+        answers = {symptom: request.form.get(symptom) == "yes" for symptom, _ in QUESTIONS}
+        if any(answers.values()):
+            disease = predict_disease(answers)
+            precautions = precaution_dictionary.get(disease, [])
+
+    return render_template(
+        "index.html",
+        questions=QUESTIONS,
+        answers=answers,
+        submitted=request.method == "POST",
+        disease=disease,
+        precautions=precautions,
+    )
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
